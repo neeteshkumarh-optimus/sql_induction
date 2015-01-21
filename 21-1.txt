@@ -1,0 +1,66 @@
+http://sqlfiddle.com/#!2/896d2/1
+http://sqlfiddle.com/#!2/fdef1/1
+
+
+create table emp (fname varchar(30),lname varchar(20),age integer (2),salary integer(10)
+,post varchar(10),half_grade integer(2),dname varchar (20));
+insert into emp values('neetesh','singh',34,50000,'manager',10,'developer');
+insert into emp values('raj','singh',20,40000,'techlead',5,'developer');
+insert into emp values('aryan','yadav',50,50000,'techlead',5,'developer');
+insert into emp values('akash kumar','singh',30,1500,'intern',6,'developer');
+insert into emp values('akash singh','pathak',50,55000,'manager',7,'testing');
+update emp set post='manager',salary=50000 where age>35 and salary>40000;
+insert into emp values('raman','singh',30,1500,'trainee',6,'developer');
+insert into emp values('raju','pathak',50,55000,'trainee',1,null);
+delete from emp where half_grade=1 and post='trainee';
+
+create table emp_slab (salary integer(10),bonus integer(10));
+insert into emp_slab values(50000,5000);
+insert into emp_slab values(1500,150);
+insert into emp_slab values(40000,4500);
+
+create table department(fname varchar(20),dname varchar(20));
+insert into department values('neetesh','developer');
+insert into department values('aryan','developer');
+insert into department values('akash singh','testing');
+
+
+25.select * from abc union select * from xyz union select * from lmn;
+26.create table lmn (fname varchar(15),lname varchar(15),dname varchar(15),salary integer (10));
+
+
+28.  create table employee (empid integer(10),fname varchar(20),lname varchar(20),sex varchar(1),active_status boolean);
+     insert into employee values(1,'neetesh','kumar','M',true);
+     insert into employee values(2,'Raj','kumar','M',false);
+   select * from employee;
+
+29. create table dep(empid integer(10),dname varchar(15),
+projectid integer (3) primary key);
+insert into dep values(1,'hr',10);
+insert into dep values(2,'developer',20);
+
+
+create table employee (empid integer(10) primary key ,
+fname varchar(20) not null,lname varchar(20),sex varchar(1),
+salary integer(10) unique check(salary>10000),active boolean,projectid integer(3)
+,FOREIGN KEY (projectid) REFERENCES dep(projectid));
+
+
+
+
+36.create table desi(desid int,desname varchar (20));
+insert into  desi values(1,'manager');
+insert into   desi values (2,'trainee');
+
+alter table employee drop index name;
+
+drop table desi;
+
+
+37.update emp set salary=salary+5000;
+38.create view vemp as select fname,lname,salary,age from emp where half_grade>5;
+39.select sum(salary) from emp;
+40.select * from emp where salary>(select avg(salary)from emp);
+ 
+
+
