@@ -1,0 +1,39 @@
+foreign key problem ------------
+
+ create table dep(empid integer(10),dname varchar(15),
+projectid integer (3) primary key);
+insert into dep values(1,'hr',10);
+insert into dep values(2,'developer',20);
+
+
+create table employee (empid integer(10) primary key ,
+fname varchar(20) not null,lname varchar(20),sex varchar(1),
+salary integer(10) unique check(salary>10000),active boolean,projectid integer(3)
+,FOREIGN KEY (projectid) REFERENCES dep(projectid));
+
+
+
+create table employee (empid integer(10),fname varchar(20),lname varchar(20),sex varchar(1),
+desig varchar(20) );
+     insert into employee values(1,'neetesh','kumar','M','hr');
+     insert into employee values(2,'Raj','kumar','M','manager');
+truncate table employee;
+alter table employee modify column desig integer;
+ insert into employee values(2,'Raj','kumar','M',1);
+create table designation(desigid integer,design_name var char(15))
+
+
+create table emp (fname varchar(30),lname varchar(20),age integer (2),salary integer(10)
+,post varchar(10),half_grade integer(2),dname varchar (20));
+insert into emp values('neetesh','singh',34,55000,'manager',10,'developer');
+insert into emp values('raj','singh',20,40000,'techlead',4,'developer');
+insert into emp values('aryan','yadav',50,15000,'techlead',3,'developer');
+insert into emp values('akash kumar','singh',30,1500,'intern',6,'developer');
+insert into emp values('akash singh','pathak',50,5550,'manager',7,'testing');
+
+update emp set salary=salary+5000;
+create view vemp as select fname,lname,salary,age from emp where half_grade>5;
+
+                      
+
+
